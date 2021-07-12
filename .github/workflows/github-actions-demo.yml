@@ -4,12 +4,11 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - name: ls -a via ssh
-        uses: fifsky/ssh-action@master
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
         with:
-          command: |
-            cd /root
-            touch /root/1.txt
           host: ${{ secrets.VPS_IP }}
-          user: root
-          key: ${{ secrets.VPS_PASSWD}}
+          username: ${{ secrets.VPS_USERNAME }}
+          password: ${{ secrets.VPS_PASSWD }}
+          port: ${{ secrets.VPS_PORT }}
+          script: touch /root/1.txt
