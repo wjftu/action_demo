@@ -12,5 +12,5 @@ jobs:
           key: ${{ secrets.VPS_PASSWD }}
           port: ${{ secrets.VPS_PORT }}
           script: |
-            touch 1.txt
+            touch /root/1.txt
             ls -al
